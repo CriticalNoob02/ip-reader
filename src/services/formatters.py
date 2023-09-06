@@ -1,7 +1,11 @@
 from json import loads;
 import re
+import numpy
 
 def selectMethods(itens, pattern):
+    """
+        Função responsável por realizar a separação de metodos de request do log;
+    """
     newFile = []
 
     for item in itens:
@@ -13,6 +17,9 @@ def selectMethods(itens, pattern):
     return newFile
 
 def splitItens(itens, spliter):
+    """
+        Função responsável por realizar a unificação de ips devolvendo apenas ips diferentes; 
+    """
     ip = []
     rest = []
     for e in range(len(itens)):
@@ -23,6 +30,18 @@ def splitItens(itens, spliter):
     return ip,rest
 
 def bytes2dict(file):
+    """
+        Função responsável por transformar dados do formato bytes em dict
+    """
     string_data = file.decode('utf-8')
     dic_data = loads(string_data)
     return dic_data
+
+def bytes2array(file):
+    """
+        Função responsável transformar os dados bytes em array;
+    """
+    string_data = file.decode('utf-8')
+    dic_data = loads(string_data)
+    array_dic = numpy.array(dic_data)
+    return array_dic
