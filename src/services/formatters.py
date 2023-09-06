@@ -1,4 +1,4 @@
-from json import loads;
+from json import loads
 import re
 import numpy
 
