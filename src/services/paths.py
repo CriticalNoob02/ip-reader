@@ -3,7 +3,7 @@ from json import dump
 
 def pathCounter(path:str):
     """
-        função responsável por coletar todos os arquivos dentro da pasta de arquivos da sua escolha;
+        Função responsável por coletar todos os arquivos dentro da pasta de arquivos da sua escolha;
     """
     paths = []
     dir = f"src/files/{path}"
@@ -27,3 +27,12 @@ def writeFile(name, data):
     """
     with open(f"src/files/ips/ip_{name}.json", "w") as file:
         dump(data, file)
+
+def deleteFile(pathName:str,path:str):
+    """
+        Função resposável por limpar o cache de dados recebidos;
+        @param - `pathName` nome do arquivo
+        @param - `path` diretório do arquivo
+    """
+    dir = f"src/files/{path}"
+    os.remove(os.path.join(dir, pathName))
