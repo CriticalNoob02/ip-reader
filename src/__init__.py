@@ -48,7 +48,7 @@ def deleteIPs():
     try:
         PATH = 'logs'
         clearLoop(PATH)
-        return jsonify({f"message": "Todos os arquivos da pasta {PATH} foram deletados"}), 200
+        return jsonify({f"message": "Todos os arquivos da pasta foram deletados"}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
